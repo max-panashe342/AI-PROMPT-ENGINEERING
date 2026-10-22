@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Vault</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <p class="eyebrow">[ PROMPT_LIBRARY // LOCAL_STORAGE ]</p>
+      <h1>Prompt <span>Vault</span></h1>
+      <p class="subtitle">Store your best instructions. Keep your workflow in orbit.</p>
+    </header>
+
+    <section class="panel prompt-form-panel" aria-labelledby="new-prompt-heading">
+      <div class="panel-heading">
+        <p class="section-tag">01 // INPUT</p>
+        <h2 id="new-prompt-heading">Create prompt</h2>
+      </div>
+
+      <form id="prompt-form">
+        <label for="prompt-title">Prompt title</label>
+        <input
+          id="prompt-title"
+          name="title"
+          type="text"
+          placeholder="e.g. Product launch strategy"
+          required
+        >
+
+        <label for="prompt-content">Prompt content</label>
+        <textarea
+          id="prompt-content"
+          name="content"
+          rows="7"
+          placeholder="Write your prompt here..."
+          required
+        ></textarea>
+
+        <button class="primary-button" type="submit">
+          <span>+</span> Save prompt
+        </button>
+      </form>
+    </section>
+
+    <section class="saved-prompts" aria-labelledby="saved-prompts-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-tag">02 // ARCHIVE</p>
+          <h2 id="saved-prompts-heading">Saved prompts</h2>
+        </div>
+        <span id="prompt-count" class="prompt-count">0 ITEMS</span>
+      </div>
+
+      <label class="search-label" for="prompt-search">Search saved prompts</label>
+      <input
+        id="prompt-search"
+        class="search-input"
+        type="search"
+        placeholder="Search by title or content..."
+      >
+      <div id="prompt-list" class="prompt-grid"></div>
+      <p id="empty-state" class="empty-state">No prompts stored yet. Add your first prompt above.</p>
+      <p id="no-results" class="empty-state" hidden>No prompts match your search.</p>
+    </section>
+  </main>
+
+  <div id="prompt-modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="Close prompt" data-close-modal>&times;</button>
+      <p class="section-tag">03 // VIEW</p>
+      <h2 id="modal-title"></h2>
+      <p id="modal-content" class="modal-prompt-content"></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
